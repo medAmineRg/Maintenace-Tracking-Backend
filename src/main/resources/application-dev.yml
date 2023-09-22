@@ -1,0 +1,41 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+  port: 8082
+  servlet:
+    context-path: /api
+
+spring:
+  security:
+    user:
+      name: amine
+      password: amine
+      roles: ADMIN
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: ${DB}
+    username: ${DB_PASS}
+    password: ${DB_USER}
+
+  mail:
+    host: ${HOST}
+    port: ${PORT}
+    username: ${EMAIL}
+    password: ${PASS}
+
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: "*"
+          auth: true
+          starttls:
+            enable: true
+
+logging:
+  level:
+    org.springframework.web: DEBUG
